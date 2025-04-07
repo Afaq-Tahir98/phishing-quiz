@@ -25,7 +25,8 @@ UPLOAD_FOLDER = 'static/uploads'
 TOTAL_QUESTIONS = 10
 
 # Tesseract config (update path if needed)
-pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+
 
 
 # -------- OCR Processing --------
