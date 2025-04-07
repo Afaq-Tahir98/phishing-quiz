@@ -12,6 +12,8 @@ from openai import OpenAI
 # Load API key
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+print("🔐 OPENAI KEY:", os.getenv("OPENAI_API_KEY"))
+
 
 # Flask setup
 app = Flask(__name__)
