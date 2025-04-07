@@ -1,0 +1,123 @@
+1 - Copy (2).jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (2).jpg,LEGIT,LEGIT,PHISH,True,False
+2.jpg,PHISH,PHISH,PHISH,True,True
+1.jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (8).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (7).jpg,LEGIT,LEGIT,PHISH,True,False
+1 - Copy.jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (6).jpg,LEGIT,LEGIT,PHISH,True,False
+1 - Copy (3).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (7).jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (2).jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (2).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (6).jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (4).jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (5).jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (6).jpg,LEGIT,PHISH,PHISH,False,False
+2.jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (7).jpg,PHISH,PHISH,PHISH,True,True
+1.jpg,LEGIT,LEGIT,PHISH,True,False
+1 - Copy (8).jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (6).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (4).jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (2).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy.jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (2).jpg,PHISH,PHISH,PHISH,True,True
+1.jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (7).jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (7).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (3).jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (5).jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (3).jpg,PHISH,PHISH,PHISH,True,True
+1.jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (5).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (6).jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (8).jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (7).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (2).jpg,PHISH,PHISH,PHISH,True,True
+1.jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (3).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy.jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (7).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (7).jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (6).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (8).jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (8).jpg,LEGIT,PHISH,PHISH,False,False
+1 - Copy (3).jpg,LEGIT,LEGIT,PHISH,True,False
+1.jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy (6).jpg,PHISH,LEGIT,PHISH,False,True
+1 - Copy (2).jpg,PHISH,PHISH,PHISH,True,True
+1 - Copy.jpg,LEGIT,LEGIT,PHISH,True,False
+4.jpg,PHISH,PHISH,PHISH,True,True
+8.jpg,LEGIT,LEGIT,PHISH,True,False
+5.jpg,LEGIT,LEGIT,PHISH,True,False
+6.jpg,LEGIT,LEGIT,PHISH,True,False
+1.jpg,PHISH,PHISH,PHISH,True,True
+7.jpg,PHISH,PHISH,PHISH,True,True
+4.jpg,LEGIT,LEGIT,PHISH,True,False
+8.jpg,PHISH,PHISH,PHISH,True,True
+5.jpg,PHISH,PHISH,PHISH,True,True
+2.jpg,PHISH,PHISH,PHISH,True,True
+7.jpg,PHISH,PHISH,ERROR,True,False
+8.jpg,PHISH,PHISH,ERROR,True,False
+2.jpg,PHISH,PHISH,ERROR,True,False
+1.jpg,PHISH,LEGIT,ERROR,False,False
+8.jpg,LEGIT,LEGIT,ERROR,True,False
+4.jpg,PHISH,PHISH,ERROR,True,False
+2.jpg,LEGIT,LEGIT,ERROR,True,False
+5.jpg,PHISH,PHISH,ERROR,True,False
+3.jpg,LEGIT,LEGIT,ERROR,True,False
+3.jpg,PHISH,PHISH,ERROR,True,False
+7.jpg,LEGIT,LEGIT,ERROR,True,False
+10.jpg,PHISH,PHISH,ERROR,True,False
+6.jpg,PHISH,PHISH,ERROR,True,False
+2.jpg,LEGIT,LEGIT,ERROR,True,False
+9.jpg,LEGIT,LEGIT,ERROR,True,False
+1.jpg,PHISH,PHISH,ERROR,True,False
+9.jpg,PHISH,PHISH,ERROR,True,False
+3.jpg,LEGIT,LEGIT,ERROR,True,False
+2.jpg,PHISH,PHISH,ERROR,True,False
+6.jpg,LEGIT,LEGIT,ERROR,True,False
+9.jpg,LEGIT,LEGIT,ERROR,True,False
+6.jpg,PHISH,PHISH,ERROR,True,False
+1.jpg,LEGIT,LEGIT,ERROR,True,False
+1.jpg,PHISH,LEGIT,ERROR,False,False
+9.jpg,PHISH,LEGIT,ERROR,False,False
+9.jpg,PHISH,LEGIT,ERROR,False,False
+10.jpg,LEGIT,LEGIT,ERROR,True,False
+8.jpg,PHISH,PHISH,ERROR,True,False
+5.jpg,PHISH,PHISH,ERROR,True,False
+6.jpg,LEGIT,LEGIT,ERROR,True,False
+8.jpg,LEGIT,LEGIT,ERROR,True,False
+1.jpg,LEGIT,PHISH,PHISH,False,False
+10.jpg,LEGIT,LEGIT,LEGIT,True,True
+9.jpg,PHISH,LEGIT,PHISH,False,True
+6.jpg,PHISH,PHISH,PHISH,True,True
+8.jpg,LEGIT,PHISH,LEGIT,False,True
+6.jpg,PHISH,LEGIT,ERROR,False,False
+6.jpg,PHISH,LEGIT,ERROR,False,False
+3.jpg,PHISH,LEGIT,PHISH,False,True
+4.jpg,PHISH,PHISH,PHISH,True,True
+5.jpg,PHISH,PHISH,PHISH,True,True
+5.jpg,LEGIT,PHISH,PHISH,False,False
+1.jpg,PHISH,LEGIT,PHISH,False,True
+3.jpg,PHISH,LEGIT,PHISH,False,True
+5.jpg,PHISH,LEGIT,PHISH,False,True
+10.jpg,PHISH,PHISH,PHISH,True,True
+1.jpg,PHISH,LEGIT,PHISH,False,True
+9.jpg,LEGIT,PHISH,PHISH,False,False
+7.jpg,LEGIT,LEGIT,LEGIT,True,True
+9.jpg,PHISH,PHISH,PHISH,True,True
+5.jpg,LEGIT,LEGIT,PHISH,True,False
+6.jpg,PHISH,PHISH,PHISH,True,True
+7.jpg,PHISH,LEGIT,LEGIT,False,False
+4.jpg,LEGIT,LEGIT,PHISH,True,False
+5.jpg,PHISH,PHISH,PHISH,True,True
+9.jpg,LEGIT,LEGIT,LEGIT,True,True
+2.jpg,PHISH,PHISH,PHISH,True,True
+1.jpg,LEGIT,LEGIT,PHISH,True,False
+7.jpg,PHISH,PHISH,LEGIT,True,False
+10.jpg,LEGIT,PHISH,LEGIT,False,True
+4.jpg,PHISH,LEGIT,PHISH,False,True
+1.jpg,PHISH,PHISH,PHISH,True,True
+10.jpg,PHISH,LEGIT,PHISH,False,True

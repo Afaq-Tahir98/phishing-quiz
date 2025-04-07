@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phish or Legit - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 Welcome to Phish or Legit!</h1>
+        <p>This website is designed to help you understand phishing, how to detect it, and test your detection skills through interactive quizzes and OCR tools.</p>
+
+        <h2>🔎 What is Phishing?</h2>
+        <p>Phishing is a type of cyber attack where attackers impersonate legitimate institutions to trick individuals into providing sensitive data like usernames, passwords, or credit card numbers.</p>
+
+        <h2>📚 Common Types of Phishing:</h2>
+        <ul>
+            <li><strong>Spear Phishing:</strong> Targeted phishing attack using personalized information.</li>
+            <li><strong>Whaling:</strong> Phishing targeting high-profile individuals like CEOs.</li>
+            <li><strong>Smishing:</strong> Phishing attacks via SMS or text messages.</li>
+            <li><strong>Vishing:</strong> Voice phishing through fake phone calls.</li>
+            <li><strong>QRishing:</strong> Phishing using malicious QR codes.</li>
+        </ul>
+
+        <div class="button-group">
+            <a href="{{ url_for('index') }}" class="btn">Start Quiz</a>
+            <a href="{{ url_for('ocr_test') }}" class="btn">Try OCR Test</a>
+        </div>
+    </div>
+</body>
+</html>

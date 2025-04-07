@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Quiz Completed!</h2>
+        <p>You scored {{ score }} / {{ total }}</p>
+        <p>AI scored {{ ai_score }} / {{ total }}</p>
+        <p>Total Time - You: {{ human_time }}s | AI: {{ ai_time }}s</p>
+
+        <canvas id="scoreChart" width="400" height="200"></canvas>
+        <canvas id="timeChart" width="400" height="200" style="margin-top: 40px;"></canvas>
+
+        <div style="margin-top: 30px;">
+            <a href="{{ url_for('home') }}" class="btn">Back to Homepage</a>
+        </div>
+    </div>
+
+    <script>
+        const scoreChart = new Chart(document.getElementById('scoreChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Human', 'AI'],
+                datasets: [{
+                    label: 'Score Comparison',
+                    data: [{{ score }}, {{ ai_score }}],
+                    backgroundColor: ['#007bff', '#28a745']
+                }]
+            }
+        });
+
+        const timeChart = new Chart(document.getElementById('timeChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Human', 'AI'],
+                datasets: [{
+                    label: 'Time Taken (seconds)',
+                    data: [{{ human_time }}, {{ ai_time }}],
+                    backgroundColor: ['#ffc107', '#6c757d']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

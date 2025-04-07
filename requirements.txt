@@ -1,0 +1,8 @@
+flask
+pytesseract
+pillow
+transformers
+torch
+
+openai
+python-dotenv

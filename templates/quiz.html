@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Question {{ round }} of {{ total }}</h2>
+        <div class="image-frame">
+            <img src="{{ url_for('static', filename=image) }}" class="email-image" alt="email screenshot">
+        </div>
+        <form method="POST">
+            <button type="submit" name="answer" value="PHISH">Phish</button>
+            <button type="submit" name="answer" value="LEGIT">Legit</button>
+        </form>
+    </div>
+</body>
+</html>
