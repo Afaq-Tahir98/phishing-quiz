@@ -6,14 +6,10 @@ import csv
 from flask import Flask, render_template, request, redirect, session, url_for
 from PIL import Image, ImageFilter, ImageOps
 import pytesseract
-from dotenv import load_dotenv
 from openai import OpenAI
 
-# Load API key
-
+# Load OpenAI client with secret key from environment
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-print("🔐 OPENAI KEY:", os.getenv("OPENAI_API_KEY"))
-
 
 # Flask setup
 app = Flask(__name__)
@@ -25,7 +21,7 @@ LEGIT_FOLDER = 'static/images/LEGIT'
 UPLOAD_FOLDER = 'static/uploads'
 TOTAL_QUESTIONS = 10
 
-# Tesseract config (update path if needed)
+# Tesseract config
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 # -------- OCR Processing --------
@@ -53,8 +49,11 @@ def classify_with_gpt(text):
                 }
             ]
         )
-        print("✅ GPT Response:", response.choices[0].message.content.strip())
-        return response.choices[0].message.content.strip().upper()
+        message = response.choices[0].message.content.strip().upper()
+        print("✅ GPT Response:", message)
+        if message not in ["PHISH", "LEGIT"]:
+            return "ERROR"
+        return message
     except Exception as e:
         print("❌ GPT Error:", e)
         return "ERROR"
@@ -85,6 +84,9 @@ def index():
 @app.route('/quiz', methods=['GET', 'POST'])
 def quiz():
     if request.method == 'POST':
+        if session['round'] == 0 or session['round'] > len(session['questions']):
+            return redirect(url_for('result'))
+
         user_answer = request.form.get('answer')
         real_label, filename = session['questions'][session['round'] - 1]
         start_ai = time.time()
@@ -93,7 +95,12 @@ def quiz():
             session['score'] += 1
 
         image_path = os.path.join('static/images', real_label, filename)
-        image = Image.open(image_path)
+        try:
+            image = Image.open(image_path)
+        except Exception as e:
+            print(f"❌ Error loading image: {image_path} -> {e}")
+            return redirect(url_for('result'))
+
         image = preprocess_image_for_ocr(image)
         text = pytesseract.image_to_string(image, config='--psm 6')
 
@@ -102,7 +109,6 @@ def quiz():
         end_ai = time.time()
         session['ai_time'] += end_ai - start_ai
 
-        # Handle GPT errors gracefully
         if gpt_label == "ERROR":
             session['history'].append({
                 "image": filename,
@@ -121,7 +127,7 @@ def quiz():
             "real": real_label,
             "human": user_answer,
             "ai": gpt_label,
-            "qr_urls": []  # QR functionality is disabled for now
+            "qr_urls": []
         })
 
         with open('results.csv', 'a', newline='') as csvfile:
