@@ -59,7 +59,7 @@ def preprocess_image_for_ocr(image):
 def classify_with_gpt(text):
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",  # or "gpt-4" if available
+            model="gpt-3.5-turbo",
             temperature=0,
             messages=[
                 {
@@ -72,9 +72,10 @@ def classify_with_gpt(text):
                 }
             ]
         )
+        print("✅ GPT Response:", response.choices[0].message.content.strip())
         return response.choices[0].message.content.strip().upper()
     except Exception as e:
-        print("GPT Error:", e)
+        print("❌ GPT Error:", e)
         return "ERROR"
 
 
