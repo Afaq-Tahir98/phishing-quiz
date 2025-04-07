@@ -6,3 +6,4 @@ torch
 
 openai
 python-dotenv
+opencv-python
