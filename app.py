@@ -9,7 +9,6 @@ import pytesseract
 from dotenv import load_dotenv
 from openai import OpenAI
 
-
 # Load API key
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -27,8 +26,6 @@ TOTAL_QUESTIONS = 10
 # Tesseract config (update path if needed)
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
-
-
 # -------- OCR Processing --------
 def preprocess_image_for_ocr(image):
     image = image.convert('L')  # grayscale
@@ -36,24 +33,6 @@ def preprocess_image_for_ocr(image):
     image = ImageOps.invert(image)
     image = ImageOps.autocontrast(image)
     return image
-
-
-# # -------- QR Code Scanning --------
-# def extract_qr_urls(image_path):
-#     img = cv2.imread(image_path)
-#     decoded_objects = decode(img)
-#     urls = []
-#     for obj in decoded_objects:
-#         data = obj.data.decode('utf-8')
-#         if data.startswith("http"):
-#             urls.append(data)
-#     return urls
-
-
-# def is_suspicious_url(url):
-#     keywords = ['phish', 'malicious', 'scam', 'fraud', 'fake', 'verify']
-#     return any(kw in url.lower() for kw in keywords)
-
 
 # -------- GPT Classifier --------
 def classify_with_gpt(text):
@@ -78,12 +57,10 @@ def classify_with_gpt(text):
         print("❌ GPT Error:", e)
         return "ERROR"
 
-
 # -------- Routes --------
 @app.route('/')
 def home():
     return render_template('home.html')
-
 
 @app.route('/quiz-start')
 def index():
@@ -103,7 +80,6 @@ def index():
 
     return redirect(url_for('quiz'))
 
-
 @app.route('/quiz', methods=['GET', 'POST'])
 def quiz():
     if request.method == 'POST':
@@ -121,14 +97,19 @@ def quiz():
 
         gpt_label = classify_with_gpt(text)
 
-        # QR check
-        # qr_urls = extract_qr_urls(image_path)
-        # qr_flagged = any(is_suspicious_url(url) for url in qr_urls)
-        # if qr_flagged:
-        #     gpt_label = "PHISH"
-
         end_ai = time.time()
         session['ai_time'] += end_ai - start_ai
+
+        # Handle GPT errors gracefully
+        if gpt_label == "ERROR":
+            session['history'].append({
+                "image": filename,
+                "real": real_label,
+                "human": user_answer,
+                "ai": "ERROR",
+                "qr_urls": []
+            })
+            return redirect(url_for('result'))
 
         if gpt_label == real_label:
             session['ai_score'] += 1
@@ -138,7 +119,7 @@ def quiz():
             "real": real_label,
             "human": user_answer,
             "ai": gpt_label,
-            "qr_urls": []
+            "qr_urls": []  # QR functionality is disabled for now
         })
 
         with open('results.csv', 'a', newline='') as csvfile:
@@ -155,7 +136,6 @@ def quiz():
 
     return render_template('quiz.html', image=image_path, round=session['round'], total=len(session['questions']))
 
-
 @app.route('/result')
 def result():
     human_time = time.time() - session['start_time']
@@ -166,7 +146,6 @@ def result():
                            human_time=round(human_time, 2),
                            ai_time=round(session['ai_time'], 2),
                            history=session['history'])
-
 
 @app.route('/ocr-test', methods=['GET', 'POST'])
 def ocr_test():
@@ -181,10 +160,6 @@ def ocr_test():
             extracted_text = pytesseract.image_to_string(image, config='--psm 6')
     return render_template('ocr_test.html', extracted_text=extracted_text)
 
-
 if __name__ == '__main__':
-    import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
-
-
