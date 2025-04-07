@@ -8,8 +8,7 @@ from PIL import Image, ImageFilter, ImageOps
 import pytesseract
 from dotenv import load_dotenv
 from openai import OpenAI
-import cv2
-from pyzbar.pyzbar import decode
+
 
 # Load API key
 load_dotenv()
@@ -38,21 +37,21 @@ def preprocess_image_for_ocr(image):
     return image
 
 
-# -------- QR Code Scanning --------
-def extract_qr_urls(image_path):
-    img = cv2.imread(image_path)
-    decoded_objects = decode(img)
-    urls = []
-    for obj in decoded_objects:
-        data = obj.data.decode('utf-8')
-        if data.startswith("http"):
-            urls.append(data)
-    return urls
+# # -------- QR Code Scanning --------
+# def extract_qr_urls(image_path):
+#     img = cv2.imread(image_path)
+#     decoded_objects = decode(img)
+#     urls = []
+#     for obj in decoded_objects:
+#         data = obj.data.decode('utf-8')
+#         if data.startswith("http"):
+#             urls.append(data)
+#     return urls
 
 
-def is_suspicious_url(url):
-    keywords = ['phish', 'malicious', 'scam', 'fraud', 'fake', 'verify']
-    return any(kw in url.lower() for kw in keywords)
+# def is_suspicious_url(url):
+#     keywords = ['phish', 'malicious', 'scam', 'fraud', 'fake', 'verify']
+#     return any(kw in url.lower() for kw in keywords)
 
 
 # -------- GPT Classifier --------
