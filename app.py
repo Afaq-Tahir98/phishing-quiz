@@ -12,7 +12,7 @@ from openai import OpenAI
 
 # Load API key
 load_dotenv()
-client = OpenAI()  # Automatically uses OPENAI_API_KEY from .env
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Flask setup
 app = Flask(__name__)
@@ -122,10 +122,10 @@ def quiz():
         gpt_label = classify_with_gpt(text)
 
         # QR check
-        qr_urls = extract_qr_urls(image_path)
-        qr_flagged = any(is_suspicious_url(url) for url in qr_urls)
-        if qr_flagged:
-            gpt_label = "PHISH"
+        # qr_urls = extract_qr_urls(image_path)
+        # qr_flagged = any(is_suspicious_url(url) for url in qr_urls)
+        # if qr_flagged:
+        #     gpt_label = "PHISH"
 
         end_ai = time.time()
         session['ai_time'] += end_ai - start_ai
@@ -138,7 +138,7 @@ def quiz():
             "real": real_label,
             "human": user_answer,
             "ai": gpt_label,
-            "qr_urls": qr_urls
+            "qr_urls": []
         })
 
         with open('results.csv', 'a', newline='') as csvfile:
